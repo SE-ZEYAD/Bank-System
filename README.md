@@ -167,5 +167,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 For any inquiries or feedback, please reach out to:
-- **Name**: Zeyad
-- **Email**: zeyad@example.com
+- **Name**: Zeyad Mohamed Abdou
+- **Email**: zeyadana2020@gamil.com
