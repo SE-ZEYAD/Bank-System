@@ -47,25 +47,63 @@ The project adheres to the following principles:
 
 ---
 
-## File Structure
-```
-BankSystem/
-├── src/
-│   ├── main.cpp              # Entry point of the application.
-│   ├── User.cpp              # Handles user-related operations.
-│   ├── Admin.cpp             # Handles admin-specific operations.
-│   ├── Account.cpp           # Manages account details and transactions.
-│   └── PermissionManager.cpp # Binary system for role-based permissions.
-├── include/
-│   ├── User.h                # Header file for User class.
-│   ├── Admin.h               # Header file for Admin class.
-│   ├── Account.h             # Header file for Account class.
-│   └── PermissionManager.h   # Header file for PermissionManager class.
-├── docs/
-│   └── README.md             # Project documentation.
-└── build/
-    └── (compiled binaries)
-```
+
+
+## 📂 Project File Structure
+
+### **Business (Logic) Layer**
+This layer contains the core logic and functionality of the system.  
+- `Client.h`: Manages client-related operations.  
+- `Currency.h`: Handles currency-related operations.  
+- `Person.h`: Abstract representation of a person in the system.  
+- `User.h`: Defines user-specific functionalities.
+
+---
+
+### **Interface Layer**
+This layer consists of all the UI screens for interacting with the system.
+
+#### **Client Screens**
+- `AddNewClientScreen.h`: Interface for adding a new client.  
+- `ClientListScreen.h`: Interface for displaying a list of clients.  
+- `DeleteClientScreen.h`: Interface for deleting a client.  
+- `FindClientScreen.h`: Interface for searching for a client.  
+- `UpdateClientScreen.h`: Interface for updating client details.
+
+#### **Currency Screens**
+- `CurrenciesListScreen.h`: Interface for listing available currencies.  
+- `CurrencyCalculatorScreen.h`: Screen for calculating currency conversions.  
+- `CurrencyExchangeMainScreen.h`: Main interface for currency exchange.  
+- `FindCurrencyScreen.h`: Screen for searching currencies.  
+- `UpdateCurrencyRateScreen.h`: Interface for updating currency rates.
+
+#### **User Screens**
+- `GlobalUser.h`: Manages global user operations.  
+- `InterfaceCommunication.h`: Handles communication between interface layers.  
+- `LoginScreen.h`: User login screen.  
+- `MainScreen.h`: Main screen after login.  
+- `Screen.h`: Base class for all screens.
+
+---
+
+### **Libraries**
+This layer contains utility files and helper functions used across the project.  
+- `Date.h`: Manages date-related functionalities.  
+- `Input_Validation.h`: Contains input validation utilities.  
+- `MainComponents.h`: Core components shared across layers.  
+- `Period.h`: Represents a period for financial operations.  
+- `String.h`: Provides string-related helper functions.  
+- `Utility.h`: General-purpose utility functions.
+
+---
+
+### **Resource Files**
+This section includes assets, configurations, and additional files required by the system.  
+
+---
+
+### **Source Files**
+Contains the implementation of system functionalities and integrations.
 
 ---
 
