@@ -1,137 +1,133 @@
-# Bank Management System
+# Bank System Project
 
 ## Overview
-The Bank Management System is a secure and robust application designed to manage users' financial activities efficiently. The system leverages Object-Oriented Programming (OOP) principles and Object-Oriented Design (OOD) patterns to ensure maintainability, scalability, and adherence to industry standards. Permissions and access control are implemented using a binary system within a Data Structures and Algorithms (DSA) framework, providing fine-grained role management.
+The Bank System is a robust, object-oriented project developed in C++ utilizing Object-Oriented Design (OOD) principles. It features functionalities for user authentication, role-based permissions, and account transfers, all built with a focus on scalability and security. The permission system is implemented using binary system data structures and algorithms (DSA).
+
+---
 
 ## Features
-1. **User Authentication:**
-   - Secure login and logout functionality for all users.
-   - Password hashing and validation mechanisms.
 
-2. **Role-Based Permissions:**
-   - Role differentiation: Admin and Regular User.
-   - Permissions are managed using a binary representation system, ensuring efficient role verification and updates.
+### 1. User Authentication
+- **Login**: Secure user authentication with username and password.
+- **Logout**: Ensures active sessions are terminated securely.
 
-3. **Account Transactions:**
-   - Transfer funds between user accounts.
-   - Track transaction history.
-   - Validate transactions to prevent fraud.
+### 2. Role-Based Permissions
+- **Admin Role**: 
+  - Manage users (add, update, delete accounts).
+  - View all transactions.
+  - Generate system reports.
+- **Standard User Role**:
+  - View account details.
+  - Perform balance inquiries.
+  - Transfer funds to other accounts.
 
-4. **Admin Features:**
-   - Create, update, and delete user accounts.
-   - Assign or modify user roles (Admin or Regular User).
-   - View comprehensive system logs.
+### 3. Account Transfers
+- Secure fund transfers between accounts.
+- Logs and tracks each transaction for transparency.
 
-5. **Scalability and Performance:**
-   - Optimized algorithms for transaction processing.
-   - Modular design for future feature additions.
-
----
-
-## System Design
-
-### Class Structure
-
-1. **User Class:**
-   - Attributes: `UserID`, `Username`, `Password`, `Role`, `AccountBalance`.
-   - Methods:
-     - `Login()`
-     - `Logout()`
-     - `ViewAccountDetails()`
-
-2. **Admin Class (Inherits from User):**
-   - Methods:
-     - `CreateUser()`
-     - `DeleteUser()`
-     - `ModifyPermissions()`
-     - `ViewLogs()`
-
-3. **Transaction Class:**
-   - Attributes: `TransactionID`, `SenderID`, `ReceiverID`, `Amount`, `Timestamp`.
-   - Methods:
-     - `InitiateTransaction()`
-     - `ValidateTransaction()`
-     - `SaveTransaction()`
-
-4. **PermissionsManager Class:**
-   - Utilizes a binary system for role management.
-   - Methods:
-     - `AssignRole()`
-     - `CheckPermissions()`
-
-### Data Structures
-- **Binary System for Permissions:**
-  - Admin: `1111` (Full Access)
-  - Regular User: `0011` (Limited Access)
-
-- **Data Storage:**
-  - Users: Stored in a map with `UserID` as the key.
-  - Transactions: Stored in a list for chronological tracking.
+### 4. Permission Management
+- Built using binary system data structures.
+- Flexible system to assign and manage roles dynamically.
 
 ---
 
-## How to Use
+## Implementation Details
 
-### Setting Up
+### Object-Oriented Design Principles
+The project adheres to the following principles:
+- **Single Responsibility Principle (SRP)**: Each class has a single, well-defined responsibility.
+- **Open/Closed Principle (OCP)**: Classes are open for extension but closed for modification.
+- **Liskov Substitution Principle (LSP)**: Ensures derived classes can substitute their base classes without altering functionality.
+- **Interface Segregation Principle (ISP)**: Interfaces are client-specific to avoid unnecessary dependencies.
+- **Dependency Inversion Principle (DIP)**: High-level modules are not dependent on low-level modules; both rely on abstractions.
+
+### Technology Stack
+- **Programming Language**: C++
+- **Data Structures**: Binary system for permission management.
+
+---
+
+## File Structure
+```
+BankSystem/
+├── src/
+│   ├── main.cpp              # Entry point of the application.
+│   ├── User.cpp              # Handles user-related operations.
+│   ├── Admin.cpp             # Handles admin-specific operations.
+│   ├── Account.cpp           # Manages account details and transactions.
+│   └── PermissionManager.cpp # Binary system for role-based permissions.
+├── include/
+│   ├── User.h                # Header file for User class.
+│   ├── Admin.h               # Header file for Admin class.
+│   ├── Account.h             # Header file for Account class.
+│   └── PermissionManager.h   # Header file for PermissionManager class.
+├── docs/
+│   └── README.md             # Project documentation.
+└── build/
+    └── (compiled binaries)
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+- C++ Compiler (e.g., GCC, Clang, or Visual Studio Compiler)
+- CMake (optional, for build automation)
+
+### Installation
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/yourusername/bank-system.git
    ```
-2. Compile the code using any C++ compiler.
+2. Navigate to the project directory:
    ```bash
-   g++ -o BankSystem main.cpp
+   cd bank-system
    ```
-3. Run the executable:
+3. Compile the project:
+   ```bash
+   g++ -o BankSystem src/*.cpp
+   ```
+
+4. Run the executable:
    ```bash
    ./BankSystem
    ```
 
+---
+
+## Usage
+
+### Admin Workflow
+1. Login as Admin.
+2. Manage user accounts (add/update/delete).
+3. View all transactions and generate system reports.
+
 ### User Workflow
-1. **Login:**
-   - Enter valid credentials to access the system.
-2. **Perform Actions:**
-   - Admins can manage users and view logs.
-   - Users can view their account details and transfer funds.
-3. **Logout:**
-   - Ensure secure logout to terminate the session.
-
----
-
-## Example Scenarios
-
-1. **Admin Creating a User:**
-   - Admin logs in and uses `CreateUser()` to add a new account.
-   - Assigns a role to the user using `AssignRole()`.
-
-2. **User Transferring Funds:**
-   - User logs in and initiates a transaction with `InitiateTransaction()`.
-   - The system validates the transaction and updates balances.
-
-3. **Checking Permissions:**
-   - A binary check ensures users have access to requested actions.
-
----
-
-## Technologies Used
-- **Programming Language:** C++
-- **Design Principles:** OOP, OOD
-- **Algorithms:** Binary search, Hashing
-- **Data Structures:** Maps, Lists, Binary Trees
+1. Login with valid credentials.
+2. View account balance.
+3. Transfer funds securely to other accounts.
 
 ---
 
 ## Future Enhancements
-1. Integrate a database for persistent data storage.
-2. Add support for multiple currencies.
-3. Implement a web-based interface using APIs.
-4. Enhance security with multi-factor authentication (MFA).
+- **Encryption**: Enhance security by encrypting sensitive data.
+- **Database Integration**: Replace file-based storage with an SQL/NoSQL database.
+- **Mobile App Support**: Extend functionality to mobile platforms.
 
 ---
 
-## Contributors
-- **Developer:** [Your Name]
+## Contribution
+Contributions are welcome! Please fork the repository and create a pull request with detailed descriptions of your changes.
 
 ---
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Contact
+For any inquiries or feedback, please reach out to:
+- **Name**: Zeyad
+- **Email**: zeyad@example.com
